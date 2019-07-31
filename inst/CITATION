@@ -1,0 +1,13 @@
+citHeader("To cite SpatialPack in publications use:")
+
+citEntry(entry="Manual",
+  title = "Tools for assessment the association between two spatial processes",
+  author = personList(as.person("F. Osorio"), as.person("R. Vallejos")),
+  year = "2019",
+  note = "R package version 0.3-8",
+  url  = "http://spatialpack.mat.utfsm.cl",
+  textVersion =
+    paste("Osorio, F., Vallejos, R. (2019).",
+      "Tools for assessment the association between two spatial processes.",
+      "R package version 0.3-8.", "URL: http://spatialpack.mat.utfsm.cl")
+)
