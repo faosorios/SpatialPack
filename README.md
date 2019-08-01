@@ -1,4 +1,4 @@
-# SpatialPack: Tools for assessment the association between two spatial
+# SpatialPack: Tools for assessment the association between two spatial processes
 
 Tools to assess the association between two spatial processes. Currently, several methodologies are implemented: 
 A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric 
