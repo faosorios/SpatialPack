@@ -1,4 +1,4 @@
-# SpatialPack: Tools for assessment the association between two spatial processes
+# Tools for assessment the association between two spatial processes
 
 [![CRAN status](http://www.r-pkg.org/badges/version/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
