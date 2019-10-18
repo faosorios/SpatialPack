@@ -1,5 +1,8 @@
 # SpatialPack: Tools for assessment the association between two spatial processes
 
+[![CRAN status](http://www.r-pkg.org/badges/version/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
+
 Tools to assess the association between two spatial processes. Currently, several methodologies are implemented: 
 A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric 
 correlation coefficient, the codispersion coefficient, and an F test for assessing the multiple correlation between 
