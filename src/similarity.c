@@ -1,4 +1,4 @@
-/* $ID: similarity.c, last updated 2019/07/31, F.Osorio */
+/* $ID: similarity.c, last updated 2019-07-31, F.Osorio */
 
 #include "similarity.h"
 #include "spatialpack.h"
@@ -27,7 +27,7 @@ SSIM(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *
   luminance = (2. * xbar * ybar + c1) / (SQR(xbar) + SQR(ybar) + c1);
   contrast  = (2. * sqrt(xvar) * sqrt(yvar) + c2) / (xvar + yvar + c2);
   structure = (cov + c3) / (sqrt(xvar) * sqrt(yvar) + c3);
-  ssim = alpha * log(luminance) + beta * log(contrast) + gamma * log(structure);
+  ssim = R_pow(luminance, alpha) * R_pow(contrast, beta) * R_pow(structure, gamma);
 
   /* save results */
   stats[0] = xbar;
@@ -35,7 +35,7 @@ SSIM(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *
   stats[2] = xvar;
   stats[3] = yvar;
   stats[4] = cov;
-  comp[0]  = exp(ssim);
+  comp[0]  = ssim;
   comp[1]  = luminance;
   comp[2]  = contrast;
   comp[3]  = structure;
@@ -58,8 +58,7 @@ CQ(double *x, double *y, int *nr, int *nc, int *h, double *eps, double *stats, d
 
   luminance = (2. * xbar * ybar + c1) / (SQR(xbar) + SQR(ybar) + c1);
   contrast  = (2. * sqrt(xvar) * sqrt(yvar) + c2) / (xvar + yvar + c2);
-  codisp_direction(x, y, &nrow, &ncol, h, comp); /* 1st element of 'comp' */
-  codispersion = comp[0];
+  F77_CALL(hcodisp)(x, &nrow, &nrow, &ncol, y, &nrow, h, &codispersion);
 
   /* save results */
   stats[0] = xbar;

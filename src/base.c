@@ -1,4 +1,4 @@
-/* $ID: base.c, last updated 2018/08/07, F.Osorio */
+/* $ID: base.c, last updated 2018-08-07, F.Osorio */
 
 #include "base.h"
 

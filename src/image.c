@@ -1,4 +1,4 @@
-/* $ID: image.c, last updated 2019/07/25, F.Osorio */
+/* $ID: image.c, last updated 2019-07-25, F.Osorio */
 
 #include "base.h"
 #include "image.h"
@@ -136,10 +136,10 @@ clipping(double *y, int *ny, int *nr, int *nc, double *low, double *high)
 }
 
 void
-normalize(double *y, int *ny, int *nr, int *nc, double *vmin, double *vmax)
+normalize(double *y, int *ny, int *nr, int *nc, double *imin, double *imax)
 {
   int ldy = *ny, nrow = *nr, ncol = *nc;
-  double min = *vmin, max = *vmax, range;
+  double min = *imin, max = *imax, range;
 
   range = max - min;
   for (int j = 0; j < ncol; j++) {

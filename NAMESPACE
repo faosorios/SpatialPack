@@ -7,7 +7,7 @@ importFrom("stats",
            complete.cases, cor, lm, pf)
 
 ## our exports:
-export(clipping, codisp, cor.spatial, CQ, imnoise, modified.Ftest, modified.ttest,
+export(clipping, codisp, cor.spatial, CQ, denoise, imnoise, modified.Ftest, modified.ttest,
        normalize, RGB2gray, SSIM)
 
 ## register S3 methods

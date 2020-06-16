@@ -1,4 +1,4 @@
-/* $ID: codisp.c, last updated 2018/08/07, F.Osorio */
+/* $ID: codisp.c, last updated 2018-08-07, F.Osorio */
 
 #include "spatialpack.h"
 
@@ -79,20 +79,20 @@ void
 codisp_direction(double *x, double *y, int *nr, int *nc, int *h, double *coef)
 {
   int h1, h2, nrow = *nr, ncol = *nc;
-  double dx, dy, sxx = 0.0, syy = 0.0, sxy = 0.0;
+  double dx, dy, cross = 0.0, sxx = 0.0, syy = 0.0;
 
   /* get direction */
   h1 = h[0]; h2 = h[1];
 
-  for (int i = h1 + 1; i < nrow; i++) {
-    for (int j = h2 + 1; j < ncol; j++) {
-      dx = x[(i - h1) + (j - h2) * nrow] - x[i + j * nrow];
-      dy = y[(i - h1) + (j - h2) * nrow] - y[i + j * nrow];
+  for (int i = 0; i < nrow - h1; i++) {
+    for (int j = 0; j < ncol - h2; j++) {
+      dx = x[i + j * nrow] - x[i + h1 + (j + h2) * nrow];
+      dy = y[i + j * nrow] - y[i + h1 + (j + h2) * nrow];
+      cross += dx * dy;
       sxx += SQR(dx);
       syy += SQR(dy);
-      sxy += dx * dy;
     }
   }
 
-  coef[0] = sxy / sqrt(sxx * syy);
+  *coef = cross / sqrt(sxx * syy);
 }

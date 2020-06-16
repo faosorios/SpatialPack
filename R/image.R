@@ -66,7 +66,7 @@ clipping <- function(img, low = 0, high = 1)
 }
 
 normalize <- function(img)
-{
+{ # equalization of a grayscale image
   dims <- dim(img)
   storage.mode(img) <- "double"
 
@@ -84,7 +84,7 @@ normalize <- function(img)
 }
 
 imnoise <- function(img, type = "gaussian", mean = 0, sd = 0.01, epsilon = 0.05,
-  var = 0.04, looks = 1, L = 255)
+  var = 0.04, looks = 1)
 {
   y <- img
   dims <- dim(y)
@@ -92,6 +92,10 @@ imnoise <- function(img, type = "gaussian", mean = 0, sd = 0.01, epsilon = 0.05,
 
   if (!is.matrix(y))
     stop("Image must be a matrix.")
+
+  ok <- (0 <= min(img)) && (max(img) <= 1)
+  if (!ok)
+    stop("gray intensity must be in [0,1]")
 
   switch(type,
          "gaussian" = {
@@ -105,38 +109,63 @@ imnoise <- function(img, type = "gaussian", mean = 0, sd = 0.01, epsilon = 0.05,
            y <- clipping(y, low = 0, high = 1)
          },
          "saltnpepper" = {
-           y <- round(L * y) # rescaling image
            y <- .C("saltnpepper",
                     y = y,
                     ldy  = as.integer(dims[1]),
                     nrow = as.integer(dims[1]),
                     ncol = as.integer(dims[2]),
                     epsilon = as.double(epsilon))$y
-           y <- clipping(y, low = 0, high = L)
-           y <- y / L
+           y <- clipping(y, low = 0, high = 1)
          },
          "speckle" = {
-           y <- round(L * y) # rescaling image
            y <- .C("unif_speckle",
                     y = y,
                     ldy  = as.integer(dims[1]),
                     nrow = as.integer(dims[1]),
                     ncol = as.integer(dims[2]),
                     var = as.double(var))$y
-           y <- clipping(y, low = 0, high = L)
-           y <- y / L
+           y <- clipping(y, low = 0, high = 1)
          },
          "gamma" = {
-           y <- round(L * y) # rescaling image
            y <- .C("gamma_noise",
                     y = y,
                     ldy  = as.integer(dims[1]),
                     nrow = as.integer(dims[1]),
                     ncol = as.integer(dims[2]),
                     looks = as.double(looks))$y
-         y <- clipping(y, low = 0, high = L)
-         y <- y / L
+           y <- clipping(y, low = 0, high = 1)
          },
          stop(paste(type, "is not implemented.")))
+  y
+}
+
+denoise <- function(img, type = "Lee", looks = 1, damping = 1)
+{
+  y <- img
+  dims <- dim(y)
+  storage.mode(y) <- "double"
+
+  if (!is.matrix(y))
+    stop("Image must be a matrix.")
+
+  ok <- (0 <= min(img)) && (max(img) <= 1)
+  if (!ok)
+    stop("gray intensity must be in [0,1]")
+
+  task <- switch(type, "median"   = 0,
+                       "Lee"      = 1,
+                       "enhanced" = 2)
+
+  y <- .Fortran("denoise",
+          x = y,
+          ldx  = as.integer(dims[1]),
+          nrow = as.integer(dims[1]),
+          ncol = as.integer(dims[2]),
+          y = y,
+          ldy = as.integer(dims[1]),
+          looks = as.double(looks),
+          damping = as.double(damping),
+          task = as.integer(task))$y
+  y <- clipping(y, low = 0, high = 1)
   y
 }

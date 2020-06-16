@@ -1,3 +1,8 @@
+0.3-81 (Jun 15, 2020)
+	* Added routine to remove additive or multiplicative noise from a corrupted image.
+	* Fixed error in function to compute the codispersion coefficient.
+	* Code for imnoise was simplified.
+
 0.3-8 (Jul 31, 2019)
 	* Now underlying code for the computation of sample mean, variance and covariance
 		is based on an online algorithm.

@@ -22,8 +22,14 @@ static const R_CMethodDef CEntries[]  = {
   {NULL, NULL, 0}
 };
 
+static const R_FortranMethodDef FortEntries[] = {
+  {"denoise",             (DL_FUNC) &F77_NAME(denoise),   9},
+  {"hcodisp",             (DL_FUNC) &F77_NAME(hcodisp),   8},
+  {NULL, NULL, 0}
+};
+
 void R_init_spatialpack(DllInfo *dll)
 {
-  R_registerRoutines(dll, CEntries, NULL, NULL, NULL);
+  R_registerRoutines(dll, CEntries, NULL, FortEntries, NULL);
   R_useDynamicSymbols(dll, FALSE);
 }

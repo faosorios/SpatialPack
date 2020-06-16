@@ -1,4 +1,4 @@
-/* $ID: base.h, last updated 2019/06/14, F.Osorio */
+/* $ID: base.h, last updated 2020-05-05, F.Osorio */
 
 #ifndef BASE_H
 #define BASE_H
@@ -11,6 +11,7 @@
 #include <R_ext/Lapack.h>
 #include <R_ext/Linpack.h>
 #include <R_ext/Applic.h>
+#include <R_ext/Utils.h>
 
 /* some definitions */
 #define MAX(a,b)    (((a)>(b)) ? (a) : (b))

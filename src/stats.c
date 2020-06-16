@@ -1,6 +1,7 @@
-/* $ID: stats.c, last updated 2019/06/14, F.Osorio */
+/* $ID: stats.c, last updated 2019-06-14, F.Osorio */
 
 #include "stats.h"
+#include "utils.h"
 
 void
 mean_and_var(double *x, int nobs, double *mean, double *var)
@@ -39,4 +40,18 @@ online_covariance(double *x, double *y, int nobs, double *xbar, double *ybar,
   *xvar = acc_x / n;
   *yvar = acc_y / n;
   *cov  = accum;
+}
+
+void
+F77_SUB(moments)(double *x, int *nobs, double *mean, double *var)
+{ /* wrapper to mean_and_var */
+  mean_and_var(x, *nobs, mean, var);
+}
+
+double
+F77_SUB(median)(double *x, int *nobs)
+{ /* wrapper to select */
+  int k = (*nobs + 1) / 2; /* only for odd number of observations */
+
+  return find_quantile(x, *nobs, k);
 }

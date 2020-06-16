@@ -1,23 +1,37 @@
+Type: Package
 Package: SpatialPack
-Version: 0.3-8
-Date: 2019-07-31
 Title: Tools for Assessment the Association Between Two Spatial Processes
+Version: 0.3-81
+Authors@R:
+    c(person(given = "Felipe",
+             family = "Osorio",
+             role = c("aut", "cre"),
+             email = "felipe.osorios@usm.cl",
+             comment = c(ORCID = "0000-0002-4675-5201")),
+      person(given = "Ronny",
+             family = "Vallejos",
+             role = "aut",
+             email = "ronny.vallejos@usm.cl",
+             comment = c(ORCID = "0000-0001-5519-0946")),
+      person(given = "Francisco",
+             family = "Cuevas",
+             role = "ctb"),
+      person(given = "Diego",
+             family = "Mancilla",
+             role = "ctb"))
 Description: Tools to assess the association between two spatial processes. Currently,
   several methodologies are implemented: A modified t-test to perform hypothesis testing
   about the independence between the processes, a suitable nonparametric correlation
   coefficient, the codispersion coefficient, and an F test for assessing the multiple
   correlation between one spatial process and several others. Functions for image
   processing and computing the spatial association between images are also provided.
-  SpatialPack gives methods to complement methodologies that are available in geoR
-  for one spatial process.
-Authors@R: c(person("Felipe", "Osorio", role = c("aut", "cre"), email = "felipe.osorios@usm.cl"),
-             person("Ronny", "Vallejos", role = "aut", email = "ronny.vallejos@usm.cl"),
-             person("Francisco", "Cuevas", role = "ctb"),
-             person("Diego", "Mancilla", role = "ctb"))
-Author: Felipe Osorio [aut, cre], Ronny Vallejos [aut], Francisco Cuevas [ctb], Diego Mancilla [ctb]
+Author: Felipe Osorio [aut, cre] (<https://orcid.org/0000-0002-4675-5201>),
+  Ronny Vallejos [aut] (<https://orcid.org/0000-0001-5519-0946>),
+  Francisco Cuevas [ctb],
+  Diego Mancilla [ctb]
 Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
 Depends: R (>= 2.10)
 Imports: stats, graphics
-License: GPL (>= 2.0)
+License: GPL-3
 URL: http://spatialpack.mat.utfsm.cl
 LazyLoad: yes

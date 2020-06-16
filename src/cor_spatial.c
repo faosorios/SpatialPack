@@ -1,4 +1,4 @@
-/* $ID: cor_spatial.c, last updated 2018/08/07, F.Osorio */
+/* $ID: cor_spatial.c, last updated 2018-08-07, F.Osorio */
 
 #include "spatialpack.h"
 

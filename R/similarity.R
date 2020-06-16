@@ -55,6 +55,9 @@ CQ <- function(x, y, h = c(0,1), eps = c(0.01, 0.03), L = 255)
     stop("h must be a vector of directions.")
   if (length(h) > 2)
     warning("only the first two elements of h are used.")
+  ok <- all(h >= 0)
+  if (!ok)
+    stop("only implemented for h >= 0.")
 
   xrow <- nrow(x)
   xcol <- ncol(x)
@@ -66,8 +69,8 @@ CQ <- function(x, y, h = c(0,1), eps = c(0.01, 0.03), L = 255)
           y = as.double(y),
           nrow = as.integer(xrow),
           ncol = as.integer(xcol),
+          h = as.integer(h),
           eps = as.double(eps),
-          h = as.double(h),
           stats = double(5),
           comps = double(4))
   stats <- z$stats[c(1,3,2,4,5)]

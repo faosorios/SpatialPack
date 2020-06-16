@@ -1,4 +1,4 @@
-/* $ID: mod_ttest.c, last updated 2018/08/07, F.Osorio */
+/* $ID: mod_ttest.c, last updated 2018-08-07, F.Osorio */
 
 #include "spatialpack.h"
 #include "stats.h"
