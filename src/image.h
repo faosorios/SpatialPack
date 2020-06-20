@@ -19,6 +19,6 @@ extern void sqrtgamma_noise(double *, int *, int *, int *, double *);
 extern void unif_speckle(double *, int *, int *, int *, double *);
 
 /* routines to remove noise */
-extern void F77_NAME(denoise)(double *, int *, int *, int *, double *, int *, double *, int *);
+extern void F77_NAME(denoise)(double *, int *, int *, int *, double *, int *, double *, double *, int *);
 
 #endif /* IMAGE_H */
