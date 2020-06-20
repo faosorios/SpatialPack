@@ -154,7 +154,9 @@ denoise <- function(img, type = "Lee", looks = 1, damping = 1)
 
   task <- switch(type, "median"   = 0,
                        "Lee"      = 1,
-                       "enhanced" = 2)
+                       "enhanced" = 2,
+                       "Kuan"     = 3,
+                       "Nathan"   = 4)
 
   y <- .Fortran("denoise",
           x = y,
