@@ -1,7 +1,7 @@
-c ID: denoise.f, last updated 2020-05-19, F.Osorio
+c ID: denoise.f, last updated 2020-06-19, F.Osorio
 
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-      SUBROUTINE denoise(x, ldx, nrow, ncol, y, ldy, looks, dip, task)
+      SUBROUTINE de_noise(x, ldx, nrow, ncol, y, ldy, looks, dip, task)
       INTEGER          ldx, nrow, ncol, ldy, task
       DOUBLE PRECISION x(ldx,*), y(ldy,*), looks, dip
 c
@@ -15,10 +15,10 @@ c     ldx   - integer.
 c           on entry, ldx specifies the leading dimension of image x.
 c           unchanged on exit.
 c     nrow  - integer.
-c           on entry, nrow specifies the number of rows of the matrix x.
+c           on entry, nrow specifies the number of rows of image x.
 c           unchanged on exit.
 c     ncol  - integer.
-c           on entry, ncol specifies the number of columns of the matrix x.
+c           on entry, ncol specifies the number of columns of image x.
 c           unchanged on exit.
 c     y     - double precision array of dimension nrow-by-ncol.
 c           y is overwritten by the filtered image.
@@ -43,8 +43,13 @@ c             task = 3: Kuan filter
 c             task = 4: Nathan filter
 c           unchanged on exit.
 c
-      INTEGER          i, j
-      DOUBLE PRECISION window(9), center
+      INTEGER          i, j, nobs
+      DOUBLE PRECISION window(9), center, xbar, xvar
+c
+c     compute descriptive statistics for the reference image
+c
+      nobs = nrow * ncol
+      call moments(x, nobs, xbar, xvar)
 
 c
 c     Process the main part of the image
@@ -71,6 +76,9 @@ c
           else if (task .EQ. 3) then
             center = window(5)
             call kuan_filter(window, 9, center, looks, y(i,j))
+          else if (task .EQ. 4) then
+            center = window(5)
+            call MMSE_filter(window, 9, center, xvar, y(i,j))
           else
             center = window(5)
             call nathan_filter(window, 9, center, y(i,j))
@@ -103,6 +111,9 @@ c
         else if (task .EQ. 3) then
           center = window(5)
           call kuan_filter(window, 9, center, looks, y(i,j))
+        else if (task .EQ. 4) then
+          center = window(5)
+          call MMSE_filter(window, 9, center, xvar, y(i,j))
         else
           center = window(5)
           call nathan_filter(window, 9, center, y(i,j))
@@ -129,6 +140,9 @@ c
         else if (task .EQ. 3) then
           center = window(5)
           call kuan_filter(window, 9, center, looks, y(i,j))
+        else if (task .EQ. 4) then
+          center = window(5)
+          call MMSE_filter(window, 9, center, xvar, y(i,j))
         else
           center = window(5)
           call nathan_filter(window, 9, center, y(i,j))
@@ -157,6 +171,9 @@ c
         else if (task .EQ. 3) then
           center = window(5)
           call kuan_filter(window, 9, center, looks, y(i,j))
+        else if (task .EQ. 4) then
+          center = window(5)
+          call MMSE_filter(window, 9, center, xvar, y(i,j))
         else
           center = window(5)
           call nathan_filter(window, 9, center, y(i,j))
@@ -183,6 +200,9 @@ c
         else if (task .EQ. 3) then
           center = window(5)
           call kuan_filter(window, 9, center, looks, y(i,j))
+        else if (task .EQ. 4) then
+          center = window(5)
+          call MMSE_filter(window, 9, center, xvar, y(i,j))
         else
           center = window(5)
           call nathan_filter(window, 9, center, y(i,j))
@@ -214,6 +234,9 @@ c
       else if (task .EQ. 3) then
         center = window(5)
         call kuan_filter(window, 9, center, looks, y(i,j))
+      else if (task .EQ. 4) then
+        center = window(5)
+        call MMSE_filter(window, 9, center, xvar, y(i,j))
       else
         center = window(5)
         call nathan_filter(window, 9, center, y(i,j))
@@ -241,6 +264,9 @@ c
       else if (task .EQ. 3) then
         center = window(5)
         call kuan_filter(window, 9, center, looks, y(i,j))
+      else if (task .EQ. 4) then
+        center = window(5)
+        call MMSE_filter(window, 9, center, xvar, y(i,j))
       else
         center = window(5)
         call nathan_filter(window, 9, center, y(i,j))
@@ -268,6 +294,9 @@ c
       else if (task .EQ. 3) then
         center = window(5)
         call kuan_filter(window, 9, center, looks, y(i,j))
+      else if (task .EQ. 4) then
+        center = window(5)
+        call MMSE_filter(window, 9, center, xvar, y(i,j))
       else
         center = window(5)
         call nathan_filter(window, 9, center, y(i,j))
@@ -295,6 +324,9 @@ c
       else if (task .EQ. 3) then
         center = window(5)
         call kuan_filter(window, 9, center, looks, y(i,j))
+      else if (task .EQ. 4) then
+        center = window(5)
+        call MMSE_filter(window, 9, center, xvar, y(i,j))
       else
         center = window(5)
         call nathan_filter(window, 9, center, y(i,j))
@@ -460,9 +492,9 @@ c
       END
 
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-      SUBROUTINE mmse_filter(window, n, center, looks, pixel)
+      SUBROUTINE MMSE_filter(window, n, center, xvar, pixel)
       INTEGER          n
-      DOUBLE PRECISION window(*), center, looks, pixel
+      DOUBLE PRECISION window(*), center, xvar, pixel
 c
 c     yet another verion of the Lee minimum mean square error filter to
 c     remove multiplicative noise from a grayscale image
@@ -476,7 +508,7 @@ c     .. executable statements ..
 c
       call moments(window, n, mean, var)
 c
-      weight = (var - mean**2 / looks) / (var + (mean / looks)**2)
+      weight = var / (var + xvar)
       if (weight .GT. ZERO) then
         pixel = mean + weight * (center - mean)
       else

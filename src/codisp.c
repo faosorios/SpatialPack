@@ -1,21 +1,22 @@
-/* $ID: codisp.c, last updated 2018-08-07, F.Osorio */
+/* $ID: codisp.c, last updated 2020-06-15, F.Osorio */
 
+#include "base.h"
 #include "spatialpack.h"
 
 /* static functions.. */
 CODISP codisp_init(double *, double *, double *, double *, int *, double *, double *, double *);
 void codisp_free(CODISP);
-void codisp_coef(double *, double *, DIMS, double *, double *, double *, double *, double *);
+void codisp_cf(double *, double *, DIMS, double *, double *, double *, double *, double *);
 /* ..end declarations */
 
 void
-codisp(double *x, double *y, double *xpos, double *ypos, int *pdims, double *upper_bounds,
+codisp_coef(double *x, double *y, double *xpos, double *ypos, int *pdims, double *upper_bounds,
   double *card, double *coef)
 {
   CODISP obj;
 
   obj = codisp_init(x, y, xpos, ypos, pdims, upper_bounds, card, coef);
-  codisp_coef(obj->data->x, obj->data->y, obj->data->dims, obj->data->xpos,
+  codisp_cf(obj->data->x, obj->data->y, obj->data->dims, obj->data->xpos,
               obj->data->ypos, obj->data->upper_bounds, obj->data->card,
               obj->coef);
   codisp_free(obj);
@@ -42,7 +43,7 @@ codisp_free(CODISP this)
 }
 
 void
-codisp_coef(double *x, double *y, DIMS dims, double *xpos, double *ypos,
+codisp_cf(double *x, double *y, DIMS dims, double *xpos, double *ypos,
   double *upper_bounds, double *card, double *coef)
 {
   int pos;

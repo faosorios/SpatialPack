@@ -1,15 +1,24 @@
-/* $ID: spatialpack.h, last updated 2018-08-07, osorio */
+/* $ID: spatialpack.h, last updated 2020-06-15, F.Osorio */
 
 #ifndef SPATIALPACK_H
 #define SPATIALPACK_H
 
 #include "base.h"
 
-/* routines to assess the correlation between two spatial processes (to be called from R) */
-extern void codisp(double *, double *, double *, double *, int *, double *, double *, double *);
-extern void codisp_direction(double *, double *, int *, int *, int *, double *);
+/* basic routines */
+extern DIMS dimension(int *);
+extern void dimension_free(DIMS);
+extern double distance_max(double *, double *, int);
+extern void set_bounds(DIMS, double, int, double *);
+extern int find_interval(double *, int, double);
+extern DATA data_init(double *, double *, double *, double *, int *, int, double *, double *);
+extern void data_free(DATA);
+
+/* random variate generation for chi and square root of gamma distribution */
+extern double rng_chi(double);
+extern double rng_sqrt_gamma(double, double);
+
+/* codispersion coefficient for a direction h */
 extern void F77_NAME(hcodisp)(double *, int *, int *, int *, double *, int *, int *, double *);
-extern void cor_spatial(double *, double *, double *, double *, double *, double *, double *, int *, double *, double *);
-extern void modified_ttest(double *, double *, double *, double *, int *, double *, double *, double *, double *, double *);
 
 #endif /* SPATIALPACK_H */

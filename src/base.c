@@ -1,6 +1,7 @@
 /* $ID: base.c, last updated 2018-08-07, F.Osorio */
 
 #include "base.h"
+#include "spatialpack.h"
 
 DIMS
 dimension(int *pdims)

@@ -1,11 +1,11 @@
-/* $ID: similarity.c, last updated 2019-07-31, F.Osorio */
+/* $ID: similarity.c, last updated 2020-06-15, F.Osorio */
 
-#include "similarity.h"
+#include "base.h"
 #include "spatialpack.h"
 #include "stats.h"
 
 void
-SSIM(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *stats, double *comp)
+SSIM_coef(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *stats, double *comp)
 { /* compute structural similarity index for two images */
   int nobs, nrow = *nr, ncol = *nc;
   double xbar, ybar, xvar, yvar, cov;
@@ -42,7 +42,7 @@ SSIM(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *
 }
 
 void
-CQ(double *x, double *y, int *nr, int *nc, int *h, double *eps, double *stats, double *comp)
+CQ_coef(double *x, double *y, int *nr, int *nc, int *h, double *eps, double *stats, double *comp)
 { /* compute CQ index for two images */
   int nobs, nrow = *nr, ncol = *nc;
   double xbar, ybar, xvar, yvar, cov;

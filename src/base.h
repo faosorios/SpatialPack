@@ -1,7 +1,7 @@
-/* $ID: base.h, last updated 2020-05-05, F.Osorio */
+/* $ID: base.h, last updated 2020-09-10, F.Osorio */
 
-#ifndef BASE_H
-#define BASE_H
+#ifndef SPATIALPACK_BASE_H
+#define SPATIALPACK_BASE_H
 
 #include <R.h>
 #include <Rmath.h>
@@ -62,13 +62,4 @@ typedef struct CODISP_struct {
     *coef;          /* association coefficient */
 } CODISP_struct, *CODISP;
 
-/* basic routines */
-extern DIMS dimension(int *);
-extern void dimension_free(DIMS);
-extern double distance_max(double *, double *, int);
-extern void set_bounds(DIMS, double, int, double *);
-extern int find_interval(double *, int, double);
-extern DATA data_init(double *, double *, double *, double *, int *, int, double *, double *);
-extern void data_free(DATA);
-
-#endif /* BASE_H */
+#endif /* SPATIALPACK_BASE_H */

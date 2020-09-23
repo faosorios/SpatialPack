@@ -1,7 +1,7 @@
-/* $ID: image.c, last updated 2019-07-25, F.Osorio */
+/* $ID: image.c, last updated 2020-06-15, F.Osorio */
 
 #include "base.h"
-#include "image.h"
+#include "spatialpack.h"
 #include "stats.h"
 
 /* static functions.. */
@@ -109,7 +109,7 @@ grayscale(double *y, int ldy, double *red, double *green, double *blue, int ncol
 }
 
 void
-RGB2gray(double *y, int *ny, double *red, double *green, double *blue, int *nr, int *nc,
+RGB2gray_img(double *y, int *ny, double *red, double *green, double *blue, int *nr, int *nc,
   double *weights, int *task)
 { /* convert an image in RGB channels into a graycale */
   int ldy = *ny, nrow = *nr, ncol = *nc;
@@ -119,7 +119,7 @@ RGB2gray(double *y, int *ny, double *red, double *green, double *blue, int *nr, 
 }
 
 void
-clipping(double *y, int *ny, int *nr, int *nc, double *low, double *high)
+clipping_img(double *y, int *ny, int *nr, int *nc, double *low, double *high)
 {
   int ldy = *ny, nrow = *nr, ncol = *nc;
   double lower = *low, upper = *high;
@@ -136,7 +136,7 @@ clipping(double *y, int *ny, int *nr, int *nc, double *low, double *high)
 }
 
 void
-normalize(double *y, int *ny, int *nr, int *nc, double *imin, double *imax)
+normalize_img(double *y, int *ny, int *nr, int *nc, double *imin, double *imax)
 {
   int ldy = *ny, nrow = *nr, ncol = *nc;
   double min = *imin, max = *imax, range;
@@ -214,6 +214,22 @@ gamma_noise(double *y, int *ny, int *nr, int *nc, double *looks)
   for (int j = 0; j < ncol; j++) {
     for (int i = 0; i < nrow; i++) {
       y[i] *= rgamma(nlooks, 1.0 / nlooks);
+    }
+    y += ldy;
+  }
+  PutRNGstate();
+}
+
+void
+sqrt_gamma_noise(double *y, int *ny, int *nr, int *nc, double *looks)
+{ /* add multiplicative (square root of Gamma) noise to 'y' matrix */
+  int ldy = *ny, nrow = *nr, ncol = *nc;
+  double nlooks = *looks;
+
+  GetRNGstate();
+  for (int j = 0; j < ncol; j++) {
+    for (int i = 0; i < nrow; i++) {
+      y[i] *= rng_sqrt_gamma(nlooks, nlooks);
     }
     y += ldy;
   }
