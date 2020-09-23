@@ -31,7 +31,7 @@ function(x, y, coords, nclass = 13)
 
   ## call routine
   now <- proc.time()
-  z <- .C("codisp",
+  z <- .C("codisp_coef",
           x = as.double(x),
           y = as.double(y),
           xpos = as.double(xpos),

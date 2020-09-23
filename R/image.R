@@ -1,4 +1,4 @@
-## $ID: image.R, last updated 2019/06/22, F.Osorio
+## $ID: image.R, last updated 2020/06/20, F.Osorio
 
 RGB2gray <- function(img, method = "average", weights = NULL)
 {
@@ -37,7 +37,7 @@ RGB2gray <- function(img, method = "average", weights = NULL)
     weights <- rep(1,3)
   weights <- weights / sum(weights)
 
-  y <- .C("RGB2gray",
+  y <- .C("RGB2gray_img",
           y = y, ldy = as.integer(dims[1]),
           red = red, green = green, blue = blue,
           nrow = as.integer(dims[1]),
@@ -55,7 +55,7 @@ clipping <- function(img, low = 0, high = 1)
   if (!is.matrix(img))
     stop("Image must be a matrix.")
 
-  y <- .C("clipping",
+  y <- .C("clipping_img",
           y = img,
           ldy  = as.integer(dims[1]),
           nrow = as.integer(dims[1]),
@@ -73,7 +73,7 @@ normalize <- function(img)
   if (!is.matrix(img))
     stop("Image must be a matrix.")
 
-  y <- .C("normalize",
+  y <- .C("normalize_img",
           y = img,
           ldy  = as.integer(dims[1]),
           nrow = as.integer(dims[1]),
@@ -127,6 +127,19 @@ imnoise <- function(img, type = "gaussian", mean = 0, sd = 0.01, epsilon = 0.05,
            y <- clipping(y, low = 0, high = 1)
          },
          "gamma" = {
+           if (looks <= 0.0)
+             stop("number of looks must be non-negative")
+           y <- .C("gamma_noise",
+                    y = y,
+                    ldy  = as.integer(dims[1]),
+                    nrow = as.integer(dims[1]),
+                    ncol = as.integer(dims[2]),
+                    looks = as.double(looks))$y
+           y <- clipping(y, low = 0, high = 1)
+         },
+         "sqrt" = {
+           if (looks <= 0.5)
+             stop("number of looks must be greater than 0.5")
            y <- .C("gamma_noise",
                     y = y,
                     ldy  = as.integer(dims[1]),
@@ -156,9 +169,10 @@ denoise <- function(img, type = "Lee", looks = 1, damping = 1)
                        "Lee"      = 1,
                        "enhanced" = 2,
                        "Kuan"     = 3,
-                       "Nathan"   = 4)
+                       "MMSE"     = 4,
+                       "Nathan"   = 5)
 
-  y <- .Fortran("denoise",
+  y <- .Fortran("de_noise",
           x = y,
           ldx  = as.integer(dims[1]),
           nrow = as.integer(dims[1]),
