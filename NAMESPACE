@@ -1,5 +1,8 @@
 useDynLib(SpatialPack, .registration = TRUE)
 
+## required package
+import(fastmatrix)
+
 ## base packages
 importFrom("graphics",
            plot, title)

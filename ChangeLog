@@ -1,3 +1,12 @@
+0.3-8196 (Sep 22, 2020)
+	* C code to obtain certain descriptive statistics is now provided by 'fastmatrix'
+	  R package.
+	* Minor clean-ups in C and R.
+
+0.3-819 (Jun 20, 2020)
+	* Fixed an issue reported by professor Brian Ripley.
+	* Two filters (Kuan and Nathan) were added to routine denoise.
+
 0.3-81 (Jun 15, 2020)
 	* Added routine to remove additive or multiplicative noise from a corrupted image.
 	* Fixed error in function to compute the codispersion coefficient.

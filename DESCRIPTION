@@ -1,7 +1,8 @@
 Type: Package
 Package: SpatialPack
 Title: Tools for Assessment the Association Between Two Spatial Processes
-Version: 0.3-81
+Version: 0.3-8196
+Date: 2020-09-21
 Authors@R:
     c(person(given = "Felipe",
              family = "Osorio",
@@ -19,19 +20,21 @@ Authors@R:
       person(given = "Diego",
              family = "Mancilla",
              role = "ctb"))
+Author: Felipe Osorio [aut, cre] (<https://orcid.org/0000-0002-4675-5201>),
+        Ronny Vallejos [aut] (<https://orcid.org/0000-0001-5519-0946>),
+        Francisco Cuevas [ctb],
+        Diego Mancilla [ctb]
+Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
 Description: Tools to assess the association between two spatial processes. Currently,
   several methodologies are implemented: A modified t-test to perform hypothesis testing
   about the independence between the processes, a suitable nonparametric correlation
   coefficient, the codispersion coefficient, and an F test for assessing the multiple
   correlation between one spatial process and several others. Functions for image
   processing and computing the spatial association between images are also provided.
-Author: Felipe Osorio [aut, cre] (<https://orcid.org/0000-0002-4675-5201>),
-  Ronny Vallejos [aut] (<https://orcid.org/0000-0001-5519-0946>),
-  Francisco Cuevas [ctb],
-  Diego Mancilla [ctb]
-Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
-Depends: R (>= 2.10)
+Depends: R(>= 3.5.0), fastmatrix
+LinkingTo: fastmatrix
 Imports: stats, graphics
 License: GPL-3
 URL: http://spatialpack.mat.utfsm.cl
+NeedsCompilation: yes
 LazyLoad: yes
