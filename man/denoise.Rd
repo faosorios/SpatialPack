@@ -8,8 +8,11 @@
 \arguments{
   \item{img}{input grayscale image matrix.}
   \item{type}{character string, specifying the type of filter: \code{"median"},
-  \code{"Lee"} and \code{"enhanced"} (enhanced Lee filter).}
-  \item{looks}{parameter of gamma multiplicative noise. The default value is \code{looks = 1}.}
+  \code{"Lee"}, \code{"enhanced"} (enhanced Lee filter), \code{"Kuan"} and \code{"Nathan"}.}
+  \item{looks}{specifies the equivalent (or effective) number of looks used to estimate
+  noise variance, and it effectively controls the amount of smoothing applied to the
+  image by the filter. A smaller value leads to more smoothing; a larger value preserves
+  more distinct image features. The default value is \code{looks = 1}.}
   \item{damping}{specifies the extent of exponential damping effect on filtering,
   by default \code{damping = 1}.}
 }
@@ -31,6 +34,14 @@
   The Enhanced Lee filter is a refined version of the Lee filter, reducing the speckle
   noise effectively by preserving image sharpness and detail. Use the Enhanced Lee filter
   to reduce speckle while preserving texture information.
+
+  The Kuan filter follows a similar filtering process to the Lee filter in reducing
+  speckle noise. This filter also applies a spatial filter to each pixel in an image,
+  filtering the data based on local statistics of the centered pixel value that is
+  calculated using the neighboring pixels.
+
+  Nathan filter is a particular case of the Kuan filter, obtained by puting \code{looks
+  = 1}, and is thus applicable to 1-look SAR images only.
 
   The size of the pixel window used to each filter is 3-by-3.
 }
