@@ -1,29 +1,16 @@
-Type: Package
 Package: SpatialPack
+Type: Package
 Title: Tools for Assessment the Association Between Two Spatial Processes
-Version: 0.3-8196
-Date: 2020-09-21
-Authors@R:
-    c(person(given = "Felipe",
-             family = "Osorio",
-             role = c("aut", "cre"),
-             email = "felipe.osorios@usm.cl",
-             comment = c(ORCID = "0000-0002-4675-5201")),
-      person(given = "Ronny",
-             family = "Vallejos",
-             role = "aut",
-             email = "ronny.vallejos@usm.cl",
-             comment = c(ORCID = "0000-0001-5519-0946")),
-      person(given = "Francisco",
-             family = "Cuevas",
-             role = "ctb"),
-      person(given = "Diego",
-             family = "Mancilla",
-             role = "ctb"))
-Author: Felipe Osorio [aut, cre] (<https://orcid.org/0000-0002-4675-5201>),
-        Ronny Vallejos [aut] (<https://orcid.org/0000-0001-5519-0946>),
-        Francisco Cuevas [ctb],
-        Diego Mancilla [ctb]
+Version: 0.4-1
+Date: 2024-09-29
+Authors@R: c(person("Felipe", "Osorio", role = c("aut", "cre"),
+                    email = "felipe.osorios@usm.cl",
+                    comment = c(ORCID = "0000-0002-4675-5201")),
+             person("Ronny", "Vallejos", role = "aut",
+                    email = "ronny.vallejos@usm.cl",
+                    comment = c(ORCID = "0000-0001-5519-0946")),
+             person("Francisco", "Cuevas", role = "ctb"),
+             person("Diego", "Mancilla", role = "ctb"))
 Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
 Description: Tools to assess the association between two spatial processes. Currently,
   several methodologies are implemented: A modified t-test to perform hypothesis testing
@@ -31,6 +18,9 @@ Description: Tools to assess the association between two spatial processes. Curr
   coefficient, the codispersion coefficient, and an F test for assessing the multiple
   correlation between one spatial process and several others. Functions for image
   processing and computing the spatial association between images are also provided.
+  Functions contained in the package are intended to accompany Vallejos, R., Osorio, F.,
+  Bevilacqua, M. (2020). Spatial Relationships Between Two Georeferenced Variables:
+  With Applications in R. Springer, Cham <doi:10.1007/978-3-030-56681-4>.
 Depends: R(>= 3.5.0), fastmatrix
 LinkingTo: fastmatrix
 Imports: stats, graphics

@@ -1,38 +1,49 @@
+0.4-1 (Sep 29, 2024)
+ * Deprecated declarations of Calloc and Free are not longer used in the package.
+ * Function for the computation of a Nadaraya-Watson codispersion coefficient was
+   added.
+ * C code for computation of 'cor.spatial' is now slightly faster.
+ * underlying C code for computation of the median was improved.
+
+0.4 (Aug 18, 2022)
+ * An issue in SSIM and CQ functions was fixed (reported by Julia Markowski).
+ * Minor clean-ups in C and R codes.
+
 0.3-8196 (Sep 22, 2020)
-	* C code to obtain certain descriptive statistics is now provided by 'fastmatrix'
-	  R package.
-	* Minor clean-ups in C and R.
+ * C code to obtain certain descriptive statistics is now provided by 'fastmatrix'
+   R package.
+ * Minor clean-ups in C and R codes.
 
 0.3-819 (Jun 20, 2020)
-	* Fixed an issue reported by professor Brian Ripley.
-	* Two filters (Kuan and Nathan) were added to routine denoise.
+ * Fixed an issue reported by professor Brian Ripley.
+ * Two filters (Kuan and Nathan) were added to routine denoise.
 
 0.3-81 (Jun 15, 2020)
-	* Added routine to remove additive or multiplicative noise from a corrupted image.
-	* Fixed error in function to compute the codispersion coefficient.
-	* Code for imnoise was simplified.
+ * Added routine to remove additive or multiplicative noise from a corrupted image.
+ * Fixed error in function to compute the codispersion coefficient.
+ * Code for imnoise was simplified.
 
 0.3-8 (Jul 31, 2019)
-	* Now underlying code for the computation of sample mean, variance and covariance
-		is based on an online algorithm.
-	* Added routine to convert RGB image to grayscale using several methods.
-	* Added routines to add noise to image (available methods: gaussian, salt & pepper,
-	  uniform and Gamma speckle).
-	* Added routines to compute similarity between images.
-	* Added some auxiliary routines.
+ * Now underlying code for the computation of sample mean, variance and covariance 
+   is based on an online algorithm.
+ * Added routine to convert RGB image to grayscale using several methods.
+ * Added routines to add noise to image (available methods: gaussian, salt & pepper,
+   uniform and Gamma speckle).
+ * Added routines to compute similarity between images.
+ * Added some auxiliary routines.
 
 0.3 (Mar 20, 2018)
-	* Now routines modified.ttest and modified.Ftest return the estimated effective
-		sample size and the unscaled F-statistic.
-	* Added routine to compute the modified F-test (Dutilleul et al. 2008, JSPI 138,
-		1402-1415).
-	* Authors field at DESCRIPTION file was corrected.
+ * Now routines modified.ttest and modified.Ftest return the estimated effective 
+   sample size and the unscaled F-statistic.
+ * Added routine to compute the modified F-test (Dutilleul et al. 2008, JSPI 138,
+   1402-1415).
+ * Authors field at DESCRIPTION file was corrected.
 
 0.2-3 (Aug 08, 2014)
-	* Internal code for computation of codispersion coefficient and modified t-test
-	  was corrected (contributed by Diego Mancilla).
-	* Changes to NAMESPACE file to compliance with guidelines described in
-		'Writing R Extensions' Section 1.5.
+ * Internal code for computation of codispersion coefficient and modified t-test
+   was corrected (contributed by Diego Mancilla).
+ * Changes to NAMESPACE file to compliance with guidelines described in
+   'Writing R Extensions' Section 1.5.
 
 0.2 (Jun 15, 2012)
-	* Initial release of the SpatialPack on CRAN.
+ * Initial release of the SpatialPack on CRAN.
