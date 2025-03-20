@@ -18,3 +18,36 @@
 A detailed description of each of these techniques is presented in the book:
 
 Vallejos, R., Osorio, F., Bevilacqua, M. (2020). Spatial Relationships Between Two Georeferenced Variables: with Applications in R. Springer, Cham. DOI: [10.1007/978-3-030-56681-4](https://doi.org/10.1007/978-3-030-56681-4)
+
+## Reference Manual
+
+* [SpatialPack.pdf](https://cran.r-project.org/web/packages/SpatialPack/SpatialPack.pdf)
+
+## Resources
+
+Latest binaries and sources can be found at the [CRAN package repository](https://cran.r-project.org/package=L1pack):
+
+* [SpatialPack_0.4-1.tar.gz](https://cran.r-project.org/src/contrib/SpatialPack_0.4-1.tar.gz) - Package sources
+* [SpatialPack_0.4-1.zip](https://cran.r-project.org/bin/windows/contrib/4.4/SpatialPack_0.4-1.zip) - Windows binaries (R-release)
+* [SpatialPack_0.4-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.4/SpatialPack_0.4-1.tgz) - MacOS binaries (R-release, arm64)
+* [SpatialPack_0.4-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.4/SpatialPack_0.4-1.tgz) - MacOS binaries (R-release, x86_64)
+
+## Installation
+
+Install `SpatialPack` from CRAN using.
+
+``` r
+install.packages("SpatialPack")
+```
+You can install the latest development version from github with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("faosorios/SpatialPack")
+```
+Alternatively, you can download the source as a tarball or as a zip file. Unpack the tarball or zipfile (thereby creating a directory named, SpatialPack) and install the package source by executing (at the console prompt)
+
+``` r
+R CMD INSTALL SpatialPack
+```
+Next, you can load the package by using the command `library(SpatialPack)`
