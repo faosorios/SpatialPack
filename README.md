@@ -55,7 +55,7 @@ Next, you can load the package by using the command `library(SpatialPack)`
 -   Computes Tjostheim's coefficient and its asymptotic variance for two spatial sequences defined on the same locations on the plane.
 -   Performs an hypothesis testing based on a modified version of the correlation coefficient. The test provides a decision rule to elucidate whether the two processes are spatially correlated or not. The spatial sequences need to be defined on the same locations on the plane.
 -   Computes de codispersion coefficient for a specific direction h on the plane.
--   Provides a plot for the codispersion coefficient versus the lag distance *h* for isopropic processes.
+-   Provides a plot for the codispersion coefficient versus the lag distance *h* for isotropic processes.
 -   Functions for image processing and computing the spatial association between images are also provided.
 
 ## Citation
