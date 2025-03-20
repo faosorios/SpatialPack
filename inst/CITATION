@@ -1,15 +1,17 @@
-citHeader("To cite SpatialPack in publications use:")
+citHeader("To cite the SpatialPack package in publications use:")
 
-citEntry(entry="Book",
-  title = "Spatial Relationships Between Two Georeferenced Variables: with Applications in R",
-  author = personList(as.person("R. Vallejos"), as.person("F. Osorio"), as.person("M. Bevilacqua")),
-  publisher = "Springer",
-  address   = "New York",
-  year      = 2020,
-  note      = "ISBN 978-3-030-56680-7",
-  url       = "http://srb2gv.mat.utfsm.cl/",
-  textVersion =
-    paste("Vallejos, R., Osorio, F., Bevilacqua, M. (2020).",
-    "Spatial Relationships Between Two Georeferenced Variables: with Applications in R.",
-    "Springer, New York. ISBN 978-3-030-56680-7")
+bibentry(bibtype = "Book",
+         title = "Spatial Relationships Between Two Georeferenced Variables: with Applications in R",
+         author = c(as.person("R. Vallejos"),
+                    as.person("F. Osorio"),
+                    as.person("M. Bevilacqua")),
+         publisher = "Springer",
+         address      = "New York",
+         year         = 2020,
+         note         = "ISBN 978-3-030-56680-7",
+         url          = "http://srb2gv.mat.utfsm.cl/",
+         textVersion =
+         paste("Vallejos, R., Osorio, F., Bevilacqua, M. (2020).",
+               "Spatial Relationships Between Two Georeferenced Variables: with Applications in R.",
+               "Springer, New York. ISBN 978-3-030-56680-7")
 )
