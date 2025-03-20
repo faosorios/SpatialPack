@@ -46,8 +46,31 @@ You can install the latest development version from github with:
 devtools::install_github("faosorios/SpatialPack")
 ```
 Alternatively, you can download the source as a tarball or as a zip file. Unpack the tarball or zipfile (thereby creating a directory named, SpatialPack) and install the package source by executing (at the console prompt)
-
 ``` r
 R CMD INSTALL SpatialPack
 ```
 Next, you can load the package by using the command `library(SpatialPack)`
+
+## Citation
+
+To cite package `SpatialPack` in publications use:
+
+``` r
+To cite the SpatialPack package in publications use:
+
+  Vallejos, R., Osorio, F., Bevilacqua, M. (2020). Spatial
+  Relationships Between Two Georeferenced Variables: with Applications
+  in R. Springer, New York. ISBN 978-3-030-56680-7
+
+A BibTeX entry for LaTeX users is
+
+  @Book{,
+    title = {Spatial Relationships Between Two Georeferenced Variables: with Applications in R},
+    author = {R. Vallejos and F. Osorio and M. Bevilacqua},
+    publisher = {Springer},
+    address = {New York},
+    year = {2020},
+    note = {ISBN 978-3-030-56680-7},
+    url = {http://srb2gv.mat.utfsm.cl/},
+  }
+```
