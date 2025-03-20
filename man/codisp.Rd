@@ -8,9 +8,9 @@
   codisp(x, y, coords, nclass = 13)
 }
 \arguments{
-  \item{x}{an \code{n}-dimensional vector of data values.}
-  \item{y}{an \code{n}-dimensional vector of data values.}
-  \item{coords}{an \code{n-by-2} matrix containing coordinates of the \code{n} data
+  \item{x}{an \eqn{n}-dimensional vector of data values.}
+  \item{y}{an \eqn{n}-dimensional vector of data values.}
+  \item{coords}{an \eqn{n}-by-2 matrix containing coordinates of the \eqn{n} data
   locations in each row.}
   \item{nclass}{a single number giving the number of cells for the codispersion
   coefficient. The default is 13. If this argument is \code{NULL} Sturges' formula is used.}
@@ -33,17 +33,21 @@
   versus the lag distance.
 }
 \references{
+  Cuevas, F., Porcu, E., Vallejos, R. (2013). 
+  Study of spatial relationships between two sets of variables: A nonparametric approach.
+  \emph{Journal of Nonparametric Statistics} \bold{25}, 695-714.
+
   Matheron, G. (1965),
   \emph{Les Variables Regionalisees et leur Estimation}.
   Masson, Paris.
 
   Rukhin, A., Vallejos, R. (2008),
   Codispersion coefficient for spatial and temporal series.
-  \emph{Statistics and Probability Letters} \bold{78}, 1290--1300.
+  \emph{Statistics and Probability Letters} \bold{78}, 1290-1300.
 
   Vallejos, R. (2008).
   Assessing the association between two spatial or temporal sequences.
-  \emph{Journal of Applied Statistics} \bold{35}, 1323--1343.
+  \emph{Journal of Applied Statistics} \bold{35}, 1323-1343.
 }
 \examples{
 # Murray Smelter site dataset

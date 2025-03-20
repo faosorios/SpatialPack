@@ -15,7 +15,5 @@
   Brodatz, P. (1966).
   \emph{Textures: A Photographic Album for Artist and Designers}.
   Dover Publications, New York.
-
-  USC-SIPI image database, URL: \url{http://sipi.usc.edu/database/}
 }
 \keyword{datasets}

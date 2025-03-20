@@ -23,10 +23,10 @@
 \source{
   Cuevas, F., Porcu, E., Vallejos, R. (2013).
   Study of spatial relationships between two sets of variables: A nonparametric approach.
-  \emph{Journal of Nonparametric Statistics} \bold{25}, 695--714.
+  \emph{Journal of Nonparametric Statistics} \bold{25}, 695-714.
 
-  Vallejos, R., Osorio, F., Bevilacqua, M. (2020+).
-  \emph{Spatial Relationships Between Two Georeferenced Variables: with Applications in R}.
-  Springer, New York.
+  Vallejos, R., Osorio, F., Bevilacqua, M. (2020).
+  \emph{Spatial Relationships Between Two Georeferenced Variables: With Applications in R}.
+  Springer, Cham.
 }
 \keyword{datasets}

@@ -9,9 +9,9 @@
   modified.ttest(x, y, coords, nclass = 13)
 }
 \arguments{
-  \item{x}{an \code{n}-dimensional vector of data values.}
-  \item{y}{an \code{n}-dimensional vector of data values.}
-  \item{coords}{an \code{n-by-2} matrix containing coordinates of the \code{n} data
+  \item{x}{an \eqn{n}-dimensional vector of data values.}
+  \item{y}{an \eqn{n}-dimensional vector of data values.}
+  \item{coords}{an \eqn{n}-by-2 matrix containing coordinates of the \eqn{n} data
   locations in each row.}
   \item{nclass}{a single number giving the number of cells for Moran's index.
   The default is 13. If this argument is \code{NULL} Sturges' formula us used.}
@@ -41,11 +41,11 @@
 \references{
   Clifford, P., Richardson, S., Hemon, D. (1989).
   Assessing the significance of the correlation between two spatial processes.
-  \emph{Biometrics} \bold{45}, 123--134.
+  \emph{Biometrics} \bold{45}, 123-134.
 
   Dutilleul, P. (1993).
   Modifying the \emph{t} test for assessing the correlation between two spatial processes.
-  \emph{Biometrics} \bold{49}, 305--314.
+  \emph{Biometrics} \bold{49}, 305-314.
 }
 \examples{
 # Murray Smelter site dataset

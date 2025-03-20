@@ -9,9 +9,9 @@
   cor.spatial(x, y, coords)
 }
 \arguments{
-  \item{x}{an \code{n}-dimensional vector of data values.}
-  \item{y}{an \code{n}-dimensional vector of data values.}
-  \item{coords}{an \code{n-by-2} matrix containing coordinates of the \code{n} data
+  \item{x}{an \eqn{n}-dimensional vector of data values.}
+  \item{y}{an \eqn{n}-dimensional vector of data values.}
+  \item{coords}{an \eqn{n}-by-2 matrix containing coordinates of the \eqn{n} data
   locations in each row.}
 }
 \details{
@@ -29,11 +29,11 @@
 \references{
   Tjostheim, D., (1978),
   A measure of association for spatial variables.
-  \emph{Biometrika} \bold{65}, 109--114.
+  \emph{Biometrika} \bold{65}, 109-114.
 
   Hubert, L., Golledge, R.G., (1982),
   Measuring association between spatially defined variables: Tjostheim's coefficient index and some extensions.
-  \emph{Geographical Analysis} \bold{14}, 273--278.
+  \emph{Geographical Analysis} \bold{14}, 273-278.
 }
 \examples{
 # Murray Smelter site dataset

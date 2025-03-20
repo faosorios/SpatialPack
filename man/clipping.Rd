@@ -11,7 +11,7 @@
   \item{high}{highest value.}
 }
 \value{
-  grayscale image matrix with the same size as 'img'.
+  grayscale image matrix with the same size as \code{img}.
 }
 \examples{
 data(texmos2)

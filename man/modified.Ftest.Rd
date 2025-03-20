@@ -9,9 +9,9 @@
   modified.Ftest(x, y, coords, nclass = 13)
 }
 \arguments{
-  \item{x}{an \code{n-by-q} matrix of data values.}
-  \item{y}{an \code{n}-dimensional vector of data values.}
-  \item{coords}{an \code{n-by-2} matrix containing coordinates of the \code{n} data
+  \item{x}{an \eqn{n}-by-\eqn{q} matrix of data values.}
+  \item{y}{an \eqn{n}-dimensional vector of data values.}
+  \item{coords}{an \eqn{n}-by-2 matrix containing coordinates of the \eqn{n} data
   locations in each row.}
   \item{nclass}{a single number giving the number of cells for Moran's index.
   The default is 13. If this argument is \code{NULL} Sturges' formula us used.}
@@ -42,7 +42,7 @@
   Dutilleul, P., Pelletier, B., Alpargu, G. (2008).
   Modified \emph{F} tests for assessing the multiple correlation between one spatial
   process and several others.
-  \emph{Journal of Statistical Planning and Inference} \bold{138}, 1402--1415.
+  \emph{Journal of Statistical Planning and Inference} \bold{138}, 1402-1415.
 }
 \examples{
 # The Pinus Radiata data set
