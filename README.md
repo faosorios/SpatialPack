@@ -81,12 +81,21 @@ A BibTeX entry for LaTeX users is
     url = {http://srb2gv.mat.utfsm.cl/},
   }
 ```
+
 ## References
 - Osorio, F., Vallejos, R., Barraza, W., Ojeda, S.M., Landi, M.A. (2022). Statistical estimation of the structural similarity index for image quality assessment. [Signal, Image and Video Processing](https://doi.org/10.1007/s11760-021-02051-9) 16, 1035-1042.
 - Acosta, J., Vallejos, R. (2018). Effective sample size for spatial regression processes. [Electronic Journal of Statistics](https://doi.org/10.1111/stan.12060) 12, 3147-3180.
 - Vallejos, R., Osorio, F., Mancilla, D. (2015). The codispersion map: A graphical tool to visualize the association between two spatial variables. [Statistica Neerlandica](https://doi.org/10.1111/stan.12060) 69, 298-314.
 - Cuevas, F., Porcu, E., Vallejos, R. (2013). Study of spatial relationships between two sets of variables: A nonparametric approach. [Journal of Nonparametric Statistics](https://doi.org/10.1080/10485252.2013.797091) 25, 695-714.
 - Ojeda, S., Vallejos, R., Lamberti, P. (2012). Measure of similarity between images based on the codispersion coefficient. [Journal of Electronic Imaging](https://doi.org/10.1117/1.JEI.21.2.023019) 21, 023019.
+
+## Papers using SpatialPack
+- Stephens, P.R., Farrell, M.J., Davies, T.J., Gittleman, J.L., Meiri, S., Moreira, M.O., Roll, U., Wiens, J.J. (2025).  Global diversity patterns are explained by diversification rates and dispersal at ancient, not shallow, timescales. [Systematic Biology](https://doi.org/10.1093/sysbio/syaf018) syaf018.
+- Habeeb, R., Almazah, M.M.A., Hussain, I., Al-Ansari, N., Al-Rezami, A.Y., Sammen, S.Sh. (2023). Modified standardized precipitation evapotranspiration index: spatiotemporal analysis of drought. [Geomatics, Natural Hazards and Risk](https://doi.org/10.1080/19475705.2023.2195532) 14 (1), 2195532.
+- Moura, M.R., do Nascimento, F.A.O., Paolucci, L.N., Silva, D.P., Santos, B.A. (2023). Pervasive impacts of climate change on the woodiness and ecological generalism of dry forest plant assemblages. [Journal of Ecology](https://doi.org/10.1111/1365-2745.14139) 111, 1762-1776.
+- Tehreem, Z., Ali, Z., Al-Ansari, N., Niaz, R., Hussain, I., Sammen, S.Sh. (2022). A novel appraisal protocol for spatiotemporal patterns of rainfall by reconnaissance the precipitation concentration index (PCI) with global warming context. [Mathematical Problems in Engineering](https://doi.org/10.1155/2022/3012100) 2022, ID 3012100.
+- Buss, D.L., Hearne, E., Loy, R.H.Y., Manica, A., O'Connell, T.C., Jackson, J.A. (2022). Evidence of resource partitioning between fin and sei whales during the twentieth-century whaling period. [Marine Biology](https://doi.org/10.1007/s00227-022-04131-x) 169, 150.
+- Ali, Z., Hussain, I., Faisal, M., Shad, M.Y., Elashkar, E.E., Gani, S. (2019). An ensemble procedure for pattern recognition of regional drought. [The International Journal of Climatology](https://doi.org/10.1002/joc.6196) 40, 94-114.
 
 ## Providing Feedback
 
