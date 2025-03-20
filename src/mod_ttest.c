@@ -1,8 +1,7 @@
-/* $ID: mod_ttest.c, last updated 2018-08-07, F.Osorio */
+/* $ID: mod_ttest.c, last updated 2024-09-13, F.Osorio */
 
-#include "base.h"
 #include "spatialpack.h"
-#include "stats.h"
+#include "interface.h"
 
 /* static functions.. */
 TTEST mod_ttest_init(double *, double *, double *, double *, int *, double *, double *, double *, double *, double *);
@@ -19,8 +18,8 @@ modified_ttest(double *x, double *y, double *xpos, double *ypos, int *pdims,
   TTEST obj;
 
   obj = mod_ttest_init(x, y, xpos, ypos, pdims, cor, upper_bounds, card, imoran, stats);
-  mod_ttest(obj->data->x, obj->data->y, obj->data->dims, obj->data->xpos, obj->data->ypos,
-    obj->data->upper_bounds, obj->cor, obj->data->card, obj->imoran, obj->stats);
+  mod_ttest(obj->data->x, obj->data->y, obj->data->dims, obj->data->xpos, obj->data->ypos, 
+            obj->data->upper_bounds, obj->cor, obj->data->card, obj->imoran, obj->stats);
   mod_ttest_free(obj);
 }
 
@@ -31,7 +30,7 @@ mod_ttest_init(double *x, double *y, double *xpos, double *ypos, int *pdims,
   TTEST obj;
   int do_half = 0;
 
-  obj = (TTEST) Calloc(1, TTEST_struct);
+  obj = (TTEST) R_Calloc(1, TTEST_struct);
   obj->data = data_init(x, y, xpos, ypos, pdims, do_half, upper_bounds, card);
   obj->cor = cor;
   obj->imoran = imoran;
@@ -43,7 +42,7 @@ void
 mod_ttest_free(TTEST this)
 { /* destructor for a t-test object */
   data_free(this->data);
-  Free(this);
+  R_Free(this);
 }
 
 void

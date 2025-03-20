@@ -335,6 +335,7 @@ c
       return
       END
 
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
       SUBROUTINE median_filter(window, n, pixel)
       INTEGER          n
       DOUBLE PRECISION window(*), pixel

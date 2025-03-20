@@ -1,8 +1,7 @@
 /* $ID: similarity.c, last updated 2020-06-15, F.Osorio */
 
-#include "base.h"
 #include "spatialpack.h"
-#include "stats.h"
+#include "interface.h"
 
 void
 SSIM_coef(double *x, double *y, int *nr, int *nc, double *pars, double *eps, double *stats, double *comp)

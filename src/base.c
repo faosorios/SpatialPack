@@ -1,6 +1,5 @@
-/* $ID: base.c, last updated 2018-08-07, F.Osorio */
+/* $ID: base.c, last updated 2024-09-11, F.Osorio */
 
-#include "base.h"
 #include "spatialpack.h"
 
 DIMS
@@ -8,7 +7,7 @@ dimension(int *pdims)
 { /* dims object */
   DIMS val;
 
-  val = (DIMS) Calloc(1, DIMS_struct);
+  val = (DIMS) R_Calloc(1, DIMS_struct);
   val->n = (int) pdims[0];
   val->p = (int) pdims[1]; /* must be 2 */
   val->nclass = (int) pdims[2];
@@ -18,7 +17,7 @@ dimension(int *pdims)
 void
 dimension_free(DIMS this)
 { /* destructor for a dims object */
-  Free(this);
+  R_Free(this);
 }
 
 double
@@ -66,7 +65,7 @@ data_init(double *x, double *y, double *xpos, double *ypos, int *pdims, int do_h
 {
   DATA obj;
 
-  obj = (DATA) Calloc(1, DATA_struct);
+  obj = (DATA) R_Calloc(1, DATA_struct);
   obj->x = x;
   obj->y = y;
   obj->xpos = xpos;
@@ -83,5 +82,5 @@ void
 data_free(DATA this)
 { /* destructor for a data object */
   dimension_free(this->dims);
-  Free(this);
+  R_Free(this);
 }
