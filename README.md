@@ -97,6 +97,8 @@ A BibTeX entry for LaTeX users is
 - Buss, D.L., Hearne, E., Loy, R.H.Y., Manica, A., O'Connell, T.C., Jackson, J.A. (2022). Evidence of resource partitioning between fin and sei whales during the twentieth-century whaling period. [Marine Biology](https://doi.org/10.1007/s00227-022-04131-x) 169, 150.
 - Ali, Z., Hussain, I., Faisal, M., Shad, M.Y., Elashkar, E.E., Gani, S. (2019). An ensemble procedure for pattern recognition of regional drought. [The International Journal of Climatology](https://doi.org/10.1002/joc.6196) 40, 94-114.
 
+See more papers [using/citing SpatialPack](https://scholar.google.com/scholar?cites=16835056985231383669&as_sdt=2005&sciodt=0,5&hl=en)...
+
 ## Providing Feedback
 
 Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
