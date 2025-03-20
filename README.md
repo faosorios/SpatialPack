@@ -81,3 +81,21 @@ A BibTeX entry for LaTeX users is
     url = {http://srb2gv.mat.utfsm.cl/},
   }
 ```
+## References
+- Osorio, F., Vallejos, R., Barraza, W., Ojeda, S.M., Landi, M.A. (2022). Statistical estimation of the structural similarity index for image quality assessment. [Signal, Image and Video Processing](https://doi.org/10.1007/s11760-021-02051-9) 16, 1035-1042.
+- Acosta, J., Vallejos, R. (2018). Effective sample size for spatial regression processes. [Electronic Journal of Statistics](https://doi.org/10.1111/stan.12060) 12, 3147-3180.
+- Vallejos, R., Osorio, F., Mancilla, D. (2015). The codispersion map: A graphical tool to visualize the association between two spatial variables. [Statistica Neerlandica](https://doi.org/10.1111/stan.12060) 69, 298-314.
+- Cuevas, F., Porcu, E., Vallejos, R. (2013). Study of spatial relationships between two sets of variables: A nonparametric approach. [Journal of Nonparametric Statistics](https://doi.org/10.1080/10485252.2013.797091) 25, 695-714.
+- Ojeda, S., Vallejos, R., Lamberti, P. (2012). Measure of similarity between images based on the codispersion coefficient. [Journal of Electronic Imaging](https://doi.org/10.1117/1.JEI.21.2.023019) 21, 023019.
+
+## Providing Feedback
+
+Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
+
+## About the Authors
+
+Felipe Osorio is an applied statistician and creator of several R packages
+* Webpage: [faosorios.github.io](https://faosorios.github.io/)
+
+Ronny Vallejos is Associate Professor at Department of Mathematics of the Universidad Tecnica Federico Santa Maria, Chile.
+* Webpage: [rvallejos.mat.utfsm.cl](https://rvallejos.mat.utfsm.cl/)
