@@ -1,3 +1,5 @@
+## $ID: modified.ttest.R, last updated 2022-08-18, F.Osorio
+
 modified.ttest <-
 function(x, y, coords, nclass = 13)
 {

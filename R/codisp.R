@@ -1,3 +1,5 @@
+## $ID: codisp.R, last updated 2024-09-28, F.Osorio
+
 codisp <-
 function(x, y, coords, nclass = 13)
 {
@@ -49,6 +51,61 @@ function(x, y, coords, nclass = 13)
   o$speed <- speed
   class(o) <- "codisp"
   return(o)
+}
+
+codisp.ks <-
+function(x, y, coords, lags, kernel = "epanech", bandwidths)
+{
+  # validating arguments
+  if (length(x) != length(y))
+    stop("'x' and 'y' must have the same length")
+  if (!is.numeric(x)) stop("'x' must be a numeric vector")
+  if (!is.numeric(y)) stop("'y' must be a numeric vector")
+
+  # remove all NAs
+  OK <- complete.cases(x, y)
+  x <- x[OK]
+  y <- y[OK]
+  n <- length(x)
+
+  # extract coordinates, is assumed that the variables are in the appropiate order
+  coords <- as.matrix(coords)
+  p <- ncol(coords)
+  if (p < 2) stop("'coords' must be a matrix with two columns")
+  if (p > 2) warning("only the first two columns of 'coords' are considered")
+  p <- 2 # only implemented for this case!
+  xpos <- coords[,1]
+  ypos <- coords[,2]
+  cnames <- colnames(coords)[1:p]
+
+  # eval dimensions of 'lags' and 'bandwiths'
+  if (length(lags) != 2)
+    stop("'lags' must be a 2D-vector")
+  if (length(bandwidths) != 3)
+    stop("'bandwidths' must be a 3D-vector")
+
+  # kernel to be used in computations
+  task <- switch(kernel,
+                 "uniform"    = 0,
+                 "epanech"    = 1,
+                 "gaussian"   = 3,
+                 "biweight"   = 4,
+                 "triangular" = 5)
+
+  ## call routine
+  now <- proc.time()
+  z <- .C("codisp_ks",
+          x = as.double(x),
+          y = as.double(y),
+          xpos = as.double(xpos),
+          ypos = as.double(ypos),
+          nobs = as.integer(n),
+          lags = as.double(lags),
+          bandwidths = as.double(bandwidths),
+          task = as.integer(task),
+          coef = double(4))$coef
+  names(z) <- c("variog.x","variog.y","cross","codisp")
+  z
 }
 
 print.codisp <- function(x, digits = 4, ...)

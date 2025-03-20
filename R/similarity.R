@@ -1,4 +1,4 @@
-## $ID: similarity.R, last updated 2020/06/15, F.Osorio
+## $ID: similarity.R, last updated 2022-08-18, F.Osorio
 
 SSIM <- function(x, y, alpha = 1, beta = 1, gamma = 1, eps = c(0.01, 0.03), L = 255)
 { ## structural similarity index for images (SSIM)
@@ -11,7 +11,7 @@ SSIM <- function(x, y, alpha = 1, beta = 1, gamma = 1, eps = c(0.01, 0.03), L = 
   # coefficients of SSIM
   pars <- c(alpha, beta, gamma)
 
-  if (all(dim(x)) != all(dim(y)))
+  if (all(dim(x) != dim(y)))
     stop("x and y images must have same dimensions.")
 
   xrow <- nrow(x)
@@ -48,7 +48,7 @@ CQ <- function(x, y, h = c(0,1), eps = c(0.01, 0.03), L = 255)
   eps[1] <- (L * eps[1])^2
   eps[2] <- (L * eps[2])^2
 
-  if (all(dim(x)) != all(dim(y)))
+  if (all(dim(x) != dim(y)))
     stop("x and y images must have same dimensions.")
 
   if (!is.vector(h))

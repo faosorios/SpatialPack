@@ -1,4 +1,4 @@
-## $ID: image.R, last updated 2020/06/20, F.Osorio
+## $ID: image.R, last updated 2021-06-09, F.Osorio
 
 RGB2gray <- function(img, method = "average", weights = NULL)
 {
@@ -9,16 +9,16 @@ RGB2gray <- function(img, method = "average", weights = NULL)
     stop("Image matrix is not RGB image.")
 
   dims  <- dims[1:2] # discarding transparency info
-  red   <- img[,,1]
-  green <- img[,,2]
-  blue  <- img[,,3]
+  red   <- as.vector(img[,,1])
+  green <- as.vector(img[,,2])
+  blue  <- as.vector(img[,,3])
 
-  y <- matrix(0, nrow = dims[1], ncol = dims[2])
+  nobs <- prod(dims)
+  y <- double(nobs)
 
   storage.mode(red)   <- "double"
   storage.mode(green) <- "double"
   storage.mode(blue)  <- "double"
-  storage.mode(y)     <- "double"
 
   choice <- switch(method, "average"   = 0,
                            "BT240"     = 1,
@@ -38,12 +38,11 @@ RGB2gray <- function(img, method = "average", weights = NULL)
   weights <- weights / sum(weights)
 
   y <- .C("RGB2gray_img",
-          y = y, ldy = as.integer(dims[1]),
-          red = red, green = green, blue = blue,
-          nrow = as.integer(dims[1]),
-          ncol = as.integer(dims[2]),
+          y = y, red = red, green = green, blue = blue,
+          nobs = as.integer(nobs),
           weights = as.double(weights),
           method = as.integer(choice))$y
+  y <- matrix(y, nrow = dims[1], ncol = dims[2])
   y
 }
 

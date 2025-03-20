@@ -1,3 +1,5 @@
+## $ID: modified.Ftest.R, last updated 2022-08-18, F.Osorio
+
 modified.Ftest <-
 function(x, y, coords, nclass = 13)
 {
