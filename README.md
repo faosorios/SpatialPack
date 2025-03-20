@@ -25,7 +25,7 @@ Vallejos, R., Osorio, F., Bevilacqua, M. (2020). Spatial Relationships Between T
 
 ## Resources
 
-Latest binaries and sources can be found at the [CRAN package repository](https://cran.r-project.org/package=L1pack):
+Latest binaries and sources can be found at the [CRAN package repository](https://cran.r-project.org/package=SpatialPack):
 
 * [SpatialPack_0.4-1.tar.gz](https://cran.r-project.org/src/contrib/SpatialPack_0.4-1.tar.gz) - Package sources
 * [SpatialPack_0.4-1.zip](https://cran.r-project.org/bin/windows/contrib/4.4/SpatialPack_0.4-1.zip) - Windows binaries (R-release)
