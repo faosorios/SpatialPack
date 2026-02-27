@@ -1,6 +1,8 @@
 # SpatialPack: Tools for assessment the association between two spatial processes
 
 [![CRAN status](http://www.r-pkg.org/badges/version/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
+![CRAN/METACRAN](https://img.shields.io/cran/l/SpatialPack?color=informational)
+![GitHub last commit](https://img.shields.io/github/last-commit/faosorios/SpatialPack)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/SpatialPack)](https://cran.r-project.org/package=SpatialPack)
 
 `SpatialPack` provides tools to assess the association between two spatial processes. Currently, several methodologies are implemented: A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric correlation coefficient, the codispersion coefficient, and an F test for assessing the multiple correlation between one spatial process and several others. Functions for image processing and computing the spatial association between images are also provided. `SpatialPack` gives methods to complement methodologies that are available in `geoR` for one spatial process.
@@ -14,14 +16,16 @@
   - Rukhin, A., Vallejos, R., 2008. Codispersion coefficients for spatial and temporal series. [Statistics and Probability Letters](https://doi.org/10.1016/j.spl.2007.11.017) 78, 1290-1300.
 * Modified F Test for assessing multiple correlation.
   - Dutilleul, P., Pelletier, B., Alpargu, G., 2008. Modified F test for assessing the multiple correlation between one spatial process and several others. [Journal of Statistical Planning and Inference](https://doi.org/10.1016/j.jspi.2007.06.022) 138, 1402-1415.
-
+ 
 A detailed description of each of these techniques is presented in the book:
 
 Vallejos, R., Osorio, F., Bevilacqua, M. (2020). Spatial Relationships Between Two Georeferenced Variables: with Applications in R. Springer, Cham. DOI: [10.1007/978-3-030-56681-4](https://doi.org/10.1007/978-3-030-56681-4)
 
-## Reference Manual
+Currently, the [SpatialPack](https://github.com/faosorios/SpatialPack) provides support for the following R packages:
 
-* [SpatialPack.pdf](https://cran.r-project.org/web/packages/SpatialPack/SpatialPack.pdf)
+[![gateR](https://img.shields.io/badge/Support-gateR-orange)](https://cran.r-project.org/package=gateR)
+[![groupedHyperframe](https://img.shields.io/badge/Support-groupedHyperframe-orange)](https://cran.r-project.org/package=groupedHyperframe)
+[![scider](https://img.shields.io/badge/Support-scider-orange)](https://www.bioconductor.org/packages/scider/)
 
 ## Resources
 
@@ -32,7 +36,18 @@ Latest binaries and sources can be found at the [CRAN package repository](https:
 * [SpatialPack_0.4-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-arm64/contrib/4.4/SpatialPack_0.4-1.tgz) - MacOS binaries (R-release, arm64)
 * [SpatialPack_0.4-1.tgz](https://cran.r-project.org/bin/macosx/big-sur-x86_64/contrib/4.4/SpatialPack_0.4-1.tgz) - MacOS binaries (R-release, x86_64)
 
-## Installation
+## Reference Manual
+
+* [PDF manual](https://cran.r-project.org/web/packages/SpatialPack/SpatialPack.pdf) | [HTML manual](https://cran.r-project.org/web/packages/SpatialPack/refman/SpatialPack.html)
+
+## Features
+-   Computes Tjostheim's coefficient and its asymptotic variance for two spatial sequences defined on the same locations on the plane.
+-   Performs an hypothesis testing based on a modified version of the correlation coefficient. The test provides a decision rule to elucidate whether the two processes are spatially correlated or not. The spatial sequences need to be defined on the same locations on the plane.
+-   Computes de codispersion coefficient for a specific direction h on the plane.
+-   Provides a plot for the codispersion coefficient versus the lag distance *h* for isotropic processes.
+-   Functions for image processing and computing the spatial association between images are also provided.
+
+## Installation instructions
 
 Install `SpatialPack` from CRAN using.
 
@@ -51,17 +66,11 @@ R CMD INSTALL SpatialPack
 ```
 Next, you can load the package by using the command `library(SpatialPack)`
 
-## Features
--   Computes Tjostheim's coefficient and its asymptotic variance for two spatial sequences defined on the same locations on the plane.
--   Performs an hypothesis testing based on a modified version of the correlation coefficient. The test provides a decision rule to elucidate whether the two processes are spatially correlated or not. The spatial sequences need to be defined on the same locations on the plane.
--   Computes de codispersion coefficient for a specific direction h on the plane.
--   Provides a plot for the codispersion coefficient versus the lag distance *h* for isotropic processes.
--   Functions for image processing and computing the spatial association between images are also provided.
+## Providing Feedback
 
-## Citation
+Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
 
-To cite package `SpatialPack` in publications use:
-
+## To cite package `SpatialPack` in publications use:
 ``` r
 To cite the SpatialPack package in publications use:
 
@@ -98,10 +107,6 @@ A BibTeX entry for LaTeX users is
 - Ali, Z., Hussain, I., Faisal, M., Shad, M.Y., Elashkar, E.E., Gani, S. (2019). An ensemble procedure for pattern recognition of regional drought. [The International Journal of Climatology](https://doi.org/10.1002/joc.6196) 40, 94-114.
 
 See more papers [using/citing SpatialPack](https://scholar.google.com/scholar?cites=16835056985231383669&as_sdt=2005&sciodt=0,5&hl=en)...
-
-## Providing Feedback
-
-Please report any bugs/suggestions/improvements to [Felipe Osorio](https://faosorios.github.io/). If you find these routines useful or not then please let me know. Also, acknowledgement of the use of the routines is appreciated.
 
 ## About the Authors
 
